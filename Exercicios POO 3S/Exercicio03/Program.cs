@@ -1,0 +1,20 @@
+﻿using System;
+using Exercicio03;
+Pessoa pessoa1 = new Pessoa();
+pessoa1.Nome = "João";
+pessoa1.Idade = 30;
+Console.WriteLine("Dados da pessoa:");
+pessoa1.ExibirDados();
+pessoa1.AlterarIdade(35);
+Console.WriteLine("Dados da pessoa após alteração de idade:");
+pessoa1.ExibirDados();
+Console.WriteLine($"");
+Console.WriteLine($"");
+Pessoa pessoa2 = new Pessoa();
+pessoa2.Nome = "Maria";
+pessoa2.Idade = 25;
+Console.WriteLine("Dados da pessoa:");
+pessoa2.ExibirDados();
+pessoa2.AlterarIdade(-5); // Tentativa de alterar para uma idade negativa
+Console.WriteLine("Dados da pessoa após tentativa de alteração de idade:");
+pessoa2.ExibirDados();
