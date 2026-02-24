@@ -22,7 +22,6 @@ width: 80%;
 background-color: #FAEEE8;
 justify-content: space-around;
 align-items: center;
-
 font-family: 'Courier New', Courier, monospace;
 }
 
@@ -32,6 +31,9 @@ display: flex;
 justify-content: space-around;
 align-items: center;
 width: 100%;
-
 gap: 20px;
+}
+.layout-grid h1
+{
+font-size: 24px;
 }
