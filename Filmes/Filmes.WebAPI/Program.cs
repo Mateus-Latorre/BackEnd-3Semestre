@@ -15,7 +15,7 @@ builder.Services.AddDbContext<FilmeContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<IGeneroRepository, GeneroRepository>();
-builder.Services.AddScoped<IFilmeRepository, FilmeRepository>();
+//builder.Services.AddScoped<IFilmeRepository, FilmeRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 //Adiciona serviço de Jwt Bearer (forma de autenticação)
 
