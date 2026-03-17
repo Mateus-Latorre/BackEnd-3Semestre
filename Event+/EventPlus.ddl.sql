@@ -49,3 +49,6 @@ CREATE TABLE ComentarioEvento(
  Exibe BIT NOT NULL
 );
 
+Select * From TipoEvento
+Select * From TipoUsuario
+Select * From Instituicao

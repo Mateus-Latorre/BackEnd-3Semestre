@@ -2,6 +2,7 @@ using EventPlus.WebAPI.BdContextEvent;
 using EventPlus.WebAPI.Interfaces;
 using EventPlus.WebAPI.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,37 @@ builder.Services.AddOpenApi();
 
 //Registrar as Repositories (Injeção de Dependência)
 builder.Services.AddScoped<ITipoEventoRepository, TipoEventoRepository>();
+builder.Services.AddScoped<IInstituicaoRepository, InstituicaoRepository>();
+builder.Services.AddScoped<ITipoUsuarioRepository, TipoUsuarioRepository>();
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+
+
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultChallengeScheme = "JwtBearer";
+    options.DefaultAuthenticateScheme = "JwtBearer";
+})
+.AddJwtBearer("JwtBearer", options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        //valida quem está solicitando o token
+        ValidateIssuer = true,
+        //valida quem irá receber o token
+        ValidateAudience = true,
+        //Valida a expiração do token
+        ValidateLifetime = true,
+        //Chave de acesso do token
+        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("events-chave-autenticacao-webapi-dev")),
+        //Tempo de expiração do token
+        ClockSkew = TimeSpan.FromMinutes(5),
+        //nome do issuer (de onde está vindo)
+        ValidIssuer = "api_events",
+        //nome do audience (para onde ele está indo)
+        ValidAudience = "api_events"
+    };
+});
 //Adiciona Swagger
 builder.Services.AddEndpointsApiExplorer();
 

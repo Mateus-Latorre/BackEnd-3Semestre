@@ -18,7 +18,7 @@ public class TipoEventoController : ControllerBase
     /// <summary>
     /// Endpoint da API que faz chamada para o método de listar os tipos de eventos
     /// </summary>
-    /// <returns>Statu code 200 e a lista de tipos de evento</returns>
+    /// <returns>Status code 200 e a lista de tipos de evento</returns>
 
     [HttpGet]
     public IActionResult Listar()
@@ -84,12 +84,17 @@ public class TipoEventoController : ControllerBase
     /// <param name="tipoEvento">Tipo de evento com os dados atualizados</param>
     /// <returns>Status code 204 e o tipo de evento atualizado</returns>
     [HttpPut("{id}")]
-    public IActionResult Atualizar(Guid id, TipoEvento tipoEvento)
+    public IActionResult Atualizar(Guid id, TipoEventoDTO tipoEvento)
     {
         try
         {
-            _tipoEventoRepository.Atualizar(id, tipoEvento);
-            return StatusCode(204, tipoEvento);
+            var tipoEventoAtualizado = new TipoEvento
+            {
+                Titulo = tipoEvento.Titulo!
+            };
+
+            _tipoEventoRepository.Atualizar(id, tipoEventoAtualizado);
+            return StatusCode(204, tipoEventoAtualizado);
         }
         catch (Exception erro)
         {

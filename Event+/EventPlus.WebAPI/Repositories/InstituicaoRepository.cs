@@ -19,13 +19,13 @@ public class InstituicaoRepository : IInstituicaoRepository
     /// <param name="instituicao">objeto com os dados atualizados da instituição</param>
     public void Atualizar(Guid id, Instituicao instituicao)
     {
-        var instituicaoBusacada = _context.Instituicaos.Find(id);
+        var instituicaoBuscada = _context.Instituicaos.Find(id);
 
-        if (instituicaoBusacada != null)
+        if (instituicaoBuscada != null)
         {
-            instituicaoBusacada.NomeFantasia = instituicao.NomeFantasia;
-            instituicaoBusacada.Endereco = instituicao.Endereco;
-            instituicaoBusacada.Cnpj = instituicao.Cnpj;
+            instituicaoBuscada.NomeFantasia = String.IsNullOrWhiteSpace(instituicao.NomeFantasia) ? instituicaoBuscada.NomeFantasia : instituicao.NomeFantasia;
+            instituicaoBuscada.Endereco = String.IsNullOrWhiteSpace(instituicao.Endereco) ? instituicaoBuscada.Endereco : instituicao.Endereco;
+            instituicaoBuscada.Cnpj = String.IsNullOrWhiteSpace(instituicao.Cnpj) ? instituicaoBuscada.Cnpj : instituicao.Cnpj;
             _context.SaveChanges();
         }
     }
