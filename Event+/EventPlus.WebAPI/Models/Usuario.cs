@@ -9,7 +9,7 @@ namespace EventPlus.WebAPI.Models;
 
 [Table("Usuario")]
 [Index("Email", Name = "UQ__Usuario__A9D105348520B9F8", IsUnique = true)]
-public partial class Usuario
+public partial class UsuarioDTO
 {
     [Key]
     public Guid IdUsuario { get; set; }
@@ -34,6 +34,7 @@ public partial class Usuario
 
     [ForeignKey("IdTipoUsuario")]
     [InverseProperty("Usuarios")]
+    [JsonIgnore]
     public virtual TipoUsuario? IdTipoUsuarioNavigation { get; set; }
 
     [InverseProperty("IdUsuarioNavigation")]

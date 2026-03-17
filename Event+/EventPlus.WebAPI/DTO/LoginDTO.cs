@@ -7,8 +7,8 @@ namespace EventPlus.WebAPI.DTO;
         public string? Email { get; set; }
         [Required(ErrorMessage = "A senha do usuário é obrigatória.")]
         public string? Senha { get; set; }
-        [Required(ErrorMessage = "O Tipo do usuário é obrigatório")]
-        public Guid? IdTipoUsuario { get; set; }
+        //[Required(ErrorMessage = "O Tipo do usuário é obrigatório")]
+        //public Guid? IdTipoUsuario { get; set; }
     }
 
 

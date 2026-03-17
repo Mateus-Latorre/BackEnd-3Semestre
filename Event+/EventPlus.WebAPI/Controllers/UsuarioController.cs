@@ -37,11 +37,19 @@ namespace EventPlus.WebAPI.Controllers
         /// <param name="usuario">Usuário a ser cadastrado</param>
         /// <returns>Status code 201 e usuário cadastrado</returns>
         [HttpPost]
-        public IActionResult Cadastrar(Usuario usuario)
+        public IActionResult Cadastrar(UsuarioDTO usuario)
         {
+            var novoUsuario = new UsuarioDTO
+            {
+                IdUsuario = Guid.NewGuid(),
+                Nome = usuario.Nome,
+                Email = usuario.Email,
+                Senha = usuario.Senha,
+                IdTipoUsuario = usuario.IdTipoUsuario
+            };
             try
             {
-                _usuarioRepository.Cadastrar(usuario);
+                _usuarioRepository.Cadastrar(novoUsuario);
                 return StatusCode(201);
             }
             catch (Exception error)

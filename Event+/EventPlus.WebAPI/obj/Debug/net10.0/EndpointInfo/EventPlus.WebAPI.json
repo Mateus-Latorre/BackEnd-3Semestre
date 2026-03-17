@@ -453,17 +453,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Usuario"
+                "$ref": "#/components/schemas/UsuarioDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Usuario"
+                "$ref": "#/components/schemas/UsuarioDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Usuario"
+                "$ref": "#/components/schemas/UsuarioDTO"
               }
             }
           }
@@ -499,7 +499,6 @@
       "LoginDTO": {
         "required": [
           "email",
-          "idTipoUsuario",
           "senha"
         ],
         "type": "object",
@@ -511,10 +510,6 @@
           "senha": {
             "minLength": 1,
             "type": "string"
-          },
-          "idTipoUsuario": {
-            "type": "string",
-            "format": "uuid"
           }
         },
         "additionalProperties": false
@@ -532,22 +527,6 @@
         },
         "additionalProperties": false
       },
-      "TipoUsuario": {
-        "type": "object",
-        "properties": {
-          "idTipoUsuario": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "titulo": {
-            "maxLength": 100,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "TipoUsuarioDTO": {
         "required": [
           "titulo"
@@ -561,7 +540,7 @@
         },
         "additionalProperties": false
       },
-      "Usuario": {
+      "UsuarioDTO": {
         "type": "object",
         "properties": {
           "idUsuario": {
@@ -590,9 +569,6 @@
             "type": "string",
             "format": "uuid",
             "nullable": true
-          },
-          "idTipoUsuarioNavigation": {
-            "$ref": "#/components/schemas/TipoUsuario"
           }
         },
         "additionalProperties": false

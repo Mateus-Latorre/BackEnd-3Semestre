@@ -20,7 +20,7 @@ public class UsuarioRepository : IUsuarioRepository
     /// <param name="Email">Email do usuário a ser buscado</param> 
     /// <param name="Senha">Senha para validar o usuário</param> 
     /// <returns>Usuário buscado</returns>
-    public Usuario BuscarPorEmailESenha(string Email, string Senha, Guid IdTipoUsuario)
+    public UsuarioDTO BuscarPorEmailESenha(string Email, string Senha)
     {
         //Primeiro, buscamos o usuário pelo email
         var usuarioBuscado = _context.Usuarios.Include(usuario => usuario.IdTipoUsuarioNavigation).FirstOrDefault(usuario => usuario.Email == Email);
@@ -41,7 +41,7 @@ public class UsuarioRepository : IUsuarioRepository
     /// </summary>
     /// <param name="id">id od usuário a ser buscado</param>
     /// <returns>Usuário Buscado e seu tipo de usuário</returns>
-    public Usuario BuscarPorId(Guid id)
+    public UsuarioDTO BuscarPorId(Guid id)
     {
         return _context.Usuarios.Include(usuario => usuario.IdTipoUsuarioNavigation).FirstOrDefault(usuario => usuario.IdUsuario == id)!;
     }
@@ -49,7 +49,7 @@ public class UsuarioRepository : IUsuarioRepository
     /// Cadastra um novo usuário. A senha é criptografada e o Id gerado pelo banco.
     /// </summary>
     /// <param name="usuario">Usuário a ser cadastro</param>
-    public void Cadastrar(Usuario usuario)
+    public void Cadastrar(UsuarioDTO usuario)
     {
         usuario.Senha = Criptografia.GerarHash(usuario.Senha);
        _context.Usuarios.Add(usuario);

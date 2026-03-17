@@ -31,5 +31,5 @@ public partial class ComentarioEvento
 
     [ForeignKey("IdUsuario")]
     [InverseProperty("ComentarioEventos")]
-    public virtual Usuario? IdUsuarioNavigation { get; set; }
+    public virtual UsuarioDTO? IdUsuarioNavigation { get; set; }
 }

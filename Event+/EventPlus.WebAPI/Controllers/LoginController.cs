@@ -23,15 +23,8 @@ public class LoginController : ControllerBase
     {
         try
         {
-            if (loginDto.IdTipoUsuario == null)
-            {
-                return BadRequest("IdTipoUsuario é obrigatório.");
-            }
 
-            Usuario usuarioBuscado = _usuarioRepository.BuscarPorEmailESenha(
-                loginDto.Email!, 
-                loginDto.Senha!, 
-                loginDto.IdTipoUsuario.Value // Corrigido: uso de .Value para Guid? -> Guid
+            Models.UsuarioDTO usuarioBuscado = _usuarioRepository.BuscarPorEmailESenha(loginDto.Email!, loginDto.Senha!
             );
             if (usuarioBuscado == null)
             {
@@ -44,6 +37,7 @@ public class LoginController : ControllerBase
                     //forma da cliam
                     new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario.ToString()),
                     new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email!),
+                    new Claim("Título", usuarioBuscado.IdTipoUsuarioNavigation?.Titulo ?? "SemTipo"),
                     //Existe a possibilidade de criar claims personalizada
                     //EX: new Claim("ClaimPersonalizada", "Valor da claim personalizada")
                 };

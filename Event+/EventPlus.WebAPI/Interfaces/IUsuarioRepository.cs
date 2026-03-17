@@ -4,7 +4,7 @@ namespace EventPlus.WebAPI.Interfaces;
 
 public interface IUsuarioRepository
 {
-        void Cadastrar(Usuario usuario);
-        Usuario BuscarPorId(Guid id);
-        Usuario BuscarPorEmailESenha(string email, string senha, Guid IdTipoUsuario);
+        void Cadastrar(UsuarioDTO usuario);
+        UsuarioDTO BuscarPorId(Guid id);
+        UsuarioDTO BuscarPorEmailESenha(string email, string senha);
 }
