@@ -1,0 +1,81 @@
+[
+  {
+    "ContainingType": "ConnectPlus.Controllers.TipoContatoController",
+    "Method": "Listar",
+    "RelativePath": "api/TipoContato",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ConnectPlus.Controllers.TipoContatoController",
+    "Method": "Cadastrar",
+    "RelativePath": "api/TipoContato",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tipoContato",
+        "Type": "ConnectPlus.DTO.TipoContatoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ConnectPlus.Controllers.TipoContatoController",
+    "Method": "BuscarPorId",
+    "RelativePath": "api/TipoContato/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ConnectPlus.Controllers.TipoContatoController",
+    "Method": "Atualizar",
+    "RelativePath": "api/TipoContato/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "tipoContato",
+        "Type": "ConnectPlus.DTO.TipoContatoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ConnectPlus.Controllers.TipoContatoController",
+    "Method": "Deletar",
+    "RelativePath": "api/TipoContato/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
