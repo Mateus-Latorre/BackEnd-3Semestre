@@ -52,3 +52,4 @@ CREATE TABLE ComentarioEvento(
 Select * From TipoEvento
 Select * From TipoUsuario
 Select * From Instituicao
+Select * From Usuario

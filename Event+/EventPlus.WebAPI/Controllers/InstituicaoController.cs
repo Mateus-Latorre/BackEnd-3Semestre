@@ -20,7 +20,7 @@ namespace EventPlus.WebAPI.Controllers
         /// Endpoint da API que faz chamada para o método de listar as instituições
         /// </summary>
         /// <returns>Status code 200 e a lista de instituições</returns>
-        [Authorize]
+        //[Authorize]
         [HttpGet]
         public IActionResult Listar()
         {
