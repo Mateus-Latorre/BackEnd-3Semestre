@@ -11,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 builder.Services.AddScoped<ITipoContatoRepository, TipoContatoRepository>();
+builder.Services.AddScoped<IContatoRepositorty, ContatoRepository>();
 //Adiciona Swagger
 builder.Services.AddEndpointsApiExplorer();
 
